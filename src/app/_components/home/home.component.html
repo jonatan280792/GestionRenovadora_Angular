@@ -1,0 +1,467 @@
+<p>home works!</p>
+
+<section class="text-center pb-3 my-5" style="padding-top: 12px">
+  <div class="container">
+    <h2 class="h1 py-3">CRUD</h2>
+
+
+    <table class="table table-striped table-responsive-md btn-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>
+            <button mdbBtn color="indigo" size="sm" mdbWavesEffect type="button" (click)="editar()" class="m-0">Button</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          
+          <td>@fat</td>
+          <td>
+            <button mdbBtn color="indigo" size="sm" mdbWavesEffect type="button" class="m-0">Button</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>
+            <button mdbBtn color="indigo" size="sm" mdbWavesEffect type="button" class="m-0">Button</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  
+</section>
+
+
+<div class="row" style="padding-top: 10px">
+  <div class="container">
+    <div *ngIf="!showFilter">
+        <div class="row">
+          <div class="col-lg-2 col-md-1"></div>
+          <div class="col-lg-8 col-md-10 col-xl-12">
+            <h1>ENCUENTRA TU VEHICULO</h1>
+            <div class="card" id="browseInicial">
+              <br>
+              <div class="container">
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <!-- First name -->
+                    <ng-select [items]="getAllTipos" (change)="onchange(IdCategoria)"
+                      id="selectcategoria"                      
+                      bindLabel="Categoria"
+                      placeholder="Seleccione una categoria"
+                      [(ngModel)]="IdCategoria">
+                    </ng-select>
+                  </div>
+                  <div class="col">
+                    <!-- Last name -->
+                    <ng-select [items]="getAllMarcas" 
+                      id="selectMarca"
+                      bindValue="Id_Marca"
+                      bindLabel="Marca"
+                      placeholder="Seleccione una Marca"
+                      [(ngModel)]="IdMarca"
+                      [disabled]="!habilitarMarca">
+                    </ng-select>
+                  </div>
+                  <div class="col">
+                    <!-- Last name -->
+                    <select id="select2modelo" class="form-control select2" [(ngModel)]="model.Id_Modelo" 
+                      data-placeholder="Seleccionar...">
+                      <option></option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+                <div class="container">
+                  <div class="form-row mb-4">
+                    <div class="col">
+                      <!-- First name -->
+                      <select id="select2tipo" class="form-control select2" [(ngModel)]="modelTipo.ID_TYPE"
+                        data-placeholder="Seleccionar...">
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <!-- Last name -->
+                      <select id="select2tipso" class="form-control select2" [(ngModel)]="model.ID_FLUJO" 
+                        data-placeholder="Seleccionar...">
+                        <option></option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <!-- Last name -->
+                      <select id="select2tipso" class="form-control select2" [(ngModel)]="model.ID_FLUJO" 
+                        data-placeholder="Seleccionar...">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="container  center-block">
+                  <button class="btn btn-info btn-block my-4" (click)="showByFilter(model)">Buscar</button>
+                </div>                    
+              </div>                 
+            </div>
+            <div class="col-lg-2 col-md-1"></div>
+            
+          </div>
+    </div>
+    <div *ngIf="showFilter">
+       
+    </div>
+    
+    </div>
+    
+</div>
+
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Input" [(ngModel)]="litre"  [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+
+<div class="container">
+  <!-- Default form subscription -->
+<form class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">Subscribe</p>
+
+  <p>Join our mailing list. We write rarely, but only with the best content.</p>
+
+  <p>
+    <a href="" target="_blank">See the last newsletter</a>
+  </p>
+
+  <!-- Name -->
+  <div class="md-form">
+    <!-- <input mdbInput type="text" id="form1" class="form-control"> -->
+    <select mdbInput type="text" id="form1" class="form-control">
+
+    </select>
+
+    <label for="form1" class="">Example label</label>
+  </div>
+  
+
+  <!-- Email -->
+  <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+  <!-- Sign in button -->
+  <button mdbBtn color="info" block="true" type="submit">Sign in</button>
+
+
+</form>
+<!-- Default form subscription -->
+</div>
+
+<div class="container">
+
+    <!--Section: Pricing v.4-->
+  <section class="text-center pb-3 my-5">
+  
+      <!--Section heading-->
+      <h2 class="font-weight-bold h1 py-5">Our pricing plans</h2>
+      <!--Section description-->
+      <p class="grey-text pb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam
+        iure
+        provident voluptate esse quasi,
+        veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+    
+      <!--Grid row-->
+      <div class="row">
+    
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+          <!--Card-->
+          <mdb-card>
+            <mdb-card-body>
+              <mdb-card-title>
+                <h5 class="mb-4">Basic plan</h5>
+              </mdb-card-title>
+              <div class="card-circle mx-auto d-flex flex-center">
+                <mdb-icon fas icon="home" class="indigo-text"></mdb-icon>
+              </div>
+    
+              <!--Price-->
+              <h2 class="my-3">
+                <strong>59$</strong>
+              </h2>
+              <p class="grey-text">At ab ea a molestiae corrupti numquam quo beatae minima ratione magni
+                accusantium
+                repellat eveniet
+                quia vitae.
+              </p>
+              <a mdbBtn color="indigo" rounded="true" class="waves-light" mdbWavesEffect>Buy now</a>
+            </mdb-card-body>
+    
+          </mdb-card>
+          <!--Card-->
+        </div>
+        <!--Grid column-->
+    
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+          <!--Card-->
+          <mdb-card bgColor="indigo" class="white-text">
+    
+            <mdb-card-body>
+              <mdb-card-title>
+                <h5 class="mb-4">Premium plan</h5>
+              </mdb-card-title>
+              <div class="card-circle d-flex flex-center mx-auto">
+                <mdb-icon fas icon="users" class="white-text"></mdb-icon>
+              </div>
+    
+              <!--Price-->
+              <h2 class="my-3">
+                <strong>79$</strong>
+              </h2>
+              <p>Esse corporis saepe laudantium velit adipisci cumque iste ratione facere non distinctio
+                cupiditate
+                sequi atque.
+              </p>
+              <a mdbBtn color="white" outline="true" rounded="true" class="waves-light" mdbWavesEffect>Buy now</a>
+            </mdb-card-body>
+    
+          </mdb-card>
+          <!--Card-->
+        </div>
+        <!--Grid column-->
+    
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+          <!--Card-->
+          <mdb-card>
+    
+            <mdb-card-body>
+              <mdb-card-title>
+                <h5 class="mb-4">Advanced plan</h5>
+              </mdb-card-title>
+              <div class="card-circle d-flex flex-center mx-auto">
+                <mdb-icon fas icon="chart-line" class="indigo-text"></mdb-icon>
+              </div>
+    
+              <!--Price-->
+              <h2 class="my-3">
+                <strong>99$</strong>
+              </h2>
+              <p class="grey-text">At ab ea a molestiae corrupti numquam quo beatae minima ratione magni
+                accusantium
+                repellat eveniet
+                quia vitae.
+              </p>
+              <a mdbBtn color="indigo" rounded="true" class="waves-light" mdbWavesEffect>Buy now</a>
+            </mdb-card-body>
+    
+          </mdb-card>
+          <!--Card-->
+        </div>
+        <!--Grid column-->
+    
+      </div>
+      <!--Grid row-->
+    
+    </section>
+    <!--Section: Pricing v.4-->
+   <!--Section: Products v.3-->
+  <section class="text-center pb-3 my-5">
+  
+    <!--Section heading-->
+    <h2 class="h1 py-5">Our bestsellers</h2>
+    <!--Section description-->
+    <p class="grey-text mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam
+      iure
+      provident voluptate esse quasi,
+      veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+  
+    <!--Grid row-->
+    <div class="row">
+  
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4">
+  
+        <!--Card-->
+        <mdb-card class="align-items-center">
+  
+          <!--Card image-->
+          <div class="view overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" alt=""></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+  
+          <!--Card content-->
+          <mdb-card-body class="text-center">
+            <!--Category & Title-->
+            <a href="" class="grey-text">
+              <h5>Shirt</h5>
+            </a>
+            <h5>
+              <strong>
+                <a href="" class="dark-grey-text">Denim shirt
+                  <mdb-badge pill="true" danger="true">NEW</mdb-badge>
+                </a>
+              </strong>
+            </h5>
+  
+            <h4 class="font-weight-bold blue-text">
+              <strong>120$</strong>
+            </h4>
+  
+          </mdb-card-body>
+          <!--Card content-->
+  
+        </mdb-card>
+        <!--Card-->
+  
+      </div>
+      <!--Grid column-->
+  
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4">
+  
+        <!--Card-->
+        <mdb-card class="align-items-center">
+  
+          <!--Card image-->
+          <div class="view overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" alt=""></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+  
+          <!--Card content-->
+          <mdb-card-body class="text-center">
+            <!--Category & Title-->
+            <a href="" class="grey-text">
+              <h5>Sport wear</h5>
+            </a>
+            <h5>
+              <strong>
+                <a href="" class="dark-grey-text">Sweatshirt</a>
+              </strong>
+            </h5>
+  
+            <h4 class="font-weight-bold blue-text">
+              <strong>139$</strong>
+            </h4>
+  
+          </mdb-card-body>
+          <!--Card content-->
+  
+        </mdb-card>
+        <!--Card-->
+  
+      </div>
+      <!--Grid column-->
+  
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4">
+  
+        <!--Card-->
+        <mdb-card class="align-items-center">
+  
+          <!--Card image-->
+          <div class="view overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" class="img-fluid"
+              alt=""></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+  
+          <!--Card content-->
+          <mdb-card-body class="text-center">
+            <!--Category & Title-->
+            <a href="" class="grey-text">
+              <h5>Sport wear</h5>
+            </a>
+            <h5>
+              <strong>
+                <a href="" class="dark-grey-text">Grey blouse
+                  <mdb-badge pill="true" primary="true">Bestseller</mdb-badge>
+                </a>
+              </strong>
+            </h5>
+  
+            <h4 class="font-weight-bold blue-text">
+              <strong>99$</strong>
+            </h4>
+  
+          </mdb-card-body>
+          <!--Card content-->
+  
+        </mdb-card>
+        <!--Card-->
+  
+      </div>
+      <!--Grid column-->
+  
+      <!--Fourth column-->
+      <div class="col-lg-3 col-md-6 mb-4">
+  
+        <!--Card-->
+        <mdb-card class="align-items-center">
+  
+          <!--Card image-->
+          <div class="view overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" alt=""></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+  
+          <!--Card content-->
+          <mdb-card-body class="text-center">
+            <!--Category & Title-->
+            <a href="" class="grey-text">
+              <h5>Outwear</h5>
+            </a>
+            <h5>
+              <strong>
+                <a href="" class="dark-grey-text">Black jacket</a>
+              </strong>
+            </h5>
+  
+            <h4 class="font-weight-bold blue-text">
+              <strong>219$</strong>
+            </h4>
+  
+          </mdb-card-body>
+          <!--Card content-->
+  
+        </mdb-card>
+        <!--Card-->
+  
+      </div>
+      <!--Fourth column-->
+  
+    </div>
+    <!--Grid row-->
+  
+  </section>
+  <!--Section: Products v.3-->
+  </div>

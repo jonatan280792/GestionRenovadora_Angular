@@ -1,0 +1,48 @@
+<div class="container">
+  <section class="text-center pb-3 my-5">
+      <div class="row animated fadeInUp">
+          <div class="modal-dialog modal-notify modal-success" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                  <p class="text-center heading lead">Ingresar al sistema</p>              
+                 
+                </div>
+          
+                <!--Body-->
+                <div class="modal-body">
+                  <div class="text-center">
+                    <mdb-icon fas icon="users" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
+                    <p>¡Hola Bienvenido! Ingresa por favor tu correo registrado.</p>
+                      <div class="md-form mb-5">
+                          
+                          <input type="email" id="login-email" [(ngModel)]="model.UserName" class="form-control"
+                                 mdbInput mdbValidate>
+                          <label for="login-email">E-mail</label>                              
+                        </div>
+                        <div class="md-form mb-5">                              
+                            <input id="login-password" type="password" [(ngModel)]="model.PassWord" class="form-control"
+                                   mdbInput>
+                            <label for="login-email">Contraseña</label>
+                          </div>                           
+                  </div>
+                </div>
+          
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                  <a type="button" mdbBtn color="primary" class="waves-light" (click)="login(model)" mdbWavesEffect>Ingresar
+                    <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+                  </a>
+                  <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="ngOnInit()"
+                    data-dismiss="modal">Volver</a>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+      </div>
+  </section>
+   
+</div>
+
+<p>admin works!</p>
